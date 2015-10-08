@@ -51,15 +51,52 @@
         <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script src="javascript/app.js"></script>
         <script>
-            //Find all the div.annoucement
+
+
+/* The exercise done with two buttons
+Below, there is the same exercise commented done with if/else statement
+*/
             var announcements = jQuery("div.announcement");
             
+            announcements.each(function(){
+                var myButtonX = jQuery("<button>X</button>");
+                var myButtonShow = jQuery("<button>Show announcement</button>");
+                myButtonShow.hide();
+                var currentAnnouncement = jQuery(this);
+                
+                myButtonX.on("click", function() {
+                    currentAnnouncement.find("p").hide();
+                    myButtonX.hide();
+                    myButtonShow.show().css("position", "static");
+                    myButtonShow.on("click", function() {
+                    currentAnnouncement.find("p").show();
+                    myButtonShow.hide();
+                    myButtonX.show();
+                        
+                    });
+                
+                    
+                });
+                currentAnnouncement.append(myButtonX);
+                currentAnnouncement.append(myButtonShow);
+            });
+                
+            
+          
+                
+        
+            
+ /* The exercise done with if/else statement.
+ Above, there is the exercise done with two buttons
+ 
+            //Find all the div.annoucement
+            var announcements = jQuery("div.announcement");
             //For each of them, create a 'X' button
             announcements.each(function() {
                 var myButton = jQuery("<button>X</button>");
                 var currentAnnouncement = jQuery(this);
                 
-            // When the button is clicked,  
+            //When the button is clicked,  
                 myButton.on('click', function() {
                     
                     var buttonText = myButton.text();
@@ -78,30 +115,12 @@
                         //Substitute the "Show announcement" by "X"
                         myButton.text( "X" ).css("position", "absolute");
                     }
-               
-               
-                
                 });
                 
                 currentAnnouncement.append(myButton);
-           
-                //When the button is clicked another time
-                
-                //myButton.on('click', function() {
-                    
-                
-                //All the spans in the paragraph whose button was clicked appears an other time
-                
-                  //currentAnnouncement.find("p").show();  
-                  
-                //And "Show announcement" is substituted by "x"
-                
-                //jQuery( "button" ).text( "x" );
-               // });
-                 
-                
-                //currentAnnouncement.append(myButton);
             });
+*/                       
+ 
         </script>
     </body>
     
